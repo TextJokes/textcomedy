@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Jokes from './Jokes';
+import Joke from './Joke';
 import SampleText from '../../db/SampleText';
 
 class App extends Component {
@@ -9,15 +9,19 @@ class App extends Component {
     this.state = {
       screen: 1,
       jokes: SampleText,
-      batchSize: 5,
+      currentJoke: 1,
     }
   }
   
   componentDidMount(){
+    const getRequestAddress = process.env.GET_REQUEST_ADDRESS || `https://jsonplaceholder.typicode.com/posts`;
     axios
-      .get(`/`)
+      .get(getRequestAddress)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
+        this.setState({
+          jokes: res.data
+        })
       })
       .catch(err => console.log('Could not get the jokes...' , err))
   }
@@ -25,7 +29,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Jokes jokes={this.state.jokes}/>
+        <Joke joke={this.state.jokes[this.state.currentJoke]}/>
       </div>
     );
   }

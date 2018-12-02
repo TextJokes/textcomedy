@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import moment from 'moment';
 import JokeText from './JokeText';
 
 const Joke = ({joke}) => (
-  <div className="one-review-wrapper" >
-    <div className="text-container" ><JokeText text={joke.body}/></div>
-  </div>
+  <Fragment>
+    <h1>{joke.title}</h1>
+    <JokeText text={joke.body}/>
+  </Fragment>
   );
 
 export default Joke;
