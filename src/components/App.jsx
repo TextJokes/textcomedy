@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Jokes from './Jokes';
+import SampleText from '../../db/SampleText';
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-      screen: home,
-      jokes: [],
+      screen: 1,
+      jokes: SampleText,
       batchSize: 5,
     }
   }
@@ -21,7 +23,11 @@ class App extends Component {
   }
 
   render() {
-
+    return(
+      <div>
+        <Jokes jokes={this.state.jokes}/>
+      </div>
+    );
   }
 }
 
