@@ -5,7 +5,7 @@ import JokeText from './JokeText';
 const Joke = ({joke}) => (
   <Fragment>
     <h1>{joke.title}</h1>
-    <JokeText text={joke.body}/>
+    <JokeText text={joke.body} punch={joke.punch} punchtext={joke.punchtext}/>
   </Fragment>
   );
 

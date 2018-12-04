@@ -10,8 +10,9 @@ const TextComedySchema = new mongoose.Schema({
   authorImgUrl: String,
   created: { type: Date, default: Date.now },
   edited: { type: Date, default: Date.now },
-  reported: Number,
-  punch: String,
+  reported: Boolean,
+  punch: Boolean,
+  punchtext: String,
 });
 
 const TextComedy = mongoose.model('TextComedy', TextComedySchema);

@@ -16,17 +16,22 @@ class JokeText extends Component {
 
   render(){
       if (this.state.folded){
-          if (this.props.text.length > 200){
+          if (this.props.punch === true){
               return(
                   <div>
                       <div > {this.props.text} </div>
-                      <button onClick={this.handleClick.bind(this)} >+ See more</button>
+                      <br></br>
+                      <button onClick={this.handleClick.bind(this)} >See Punch line</button>
+                      <br></br>
+                      <br></br>
                   </div>
               )
           } else {
               return(
                   <div>
-                      <div > {this.props.text} </div>
+                    <div > {this.props.text} </div>
+                    <br></br>
+                    <br></br>
                   </div>
               )
           }
@@ -34,7 +39,12 @@ class JokeText extends Component {
           return(
               <div>
                   <div>{this.props.text}</div>
-                  <button onClick={this.handleClick.bind(this)} >+ See less</button>
+                  <br></br>
+                  <div>{this.props.punchtext}</div>
+                  <br></br>
+                  <button onClick={this.handleClick.bind(this)} >Hide Punch Line</button>
+                  <br></br>
+                  <br></br>
               </div>
           )
       }
