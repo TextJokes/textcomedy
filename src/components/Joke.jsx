@@ -4,8 +4,8 @@ import JokeText from './JokeText';
 
 const Joke = ({joke}) => (
   <Fragment>
-    <h1>{joke.title}</h1>
-    <JokeText text={joke.body} punch={joke.punch} punchtext={joke.punchtext}/>
+    <h5>{joke.title}</h5>
+    <JokeText text={joke.body} punch={joke.punch} punchtext={joke.punchtext} />
   </Fragment>
   );
 

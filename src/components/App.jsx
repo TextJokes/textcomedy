@@ -118,12 +118,14 @@ class App extends Component {
       } else {
         return(
           <Fragment>
-            <TopMenu best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)}/>
+            <TopMenu best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)} style={jokeBody}/>
             <hr></hr>
-            <Author joke={this.state.jokes[this.state.currentJoke]}/>
-            <Joke joke={this.state.jokes[this.state.currentJoke]}/>
+            <div style={jokeBody}>
+              <Author joke={this.state.jokes[this.state.currentJoke]} />
+              <Joke joke={this.state.jokes[this.state.currentJoke]} />
+            </div>
             <hr></hr>
-            <Controls joke={this.state.jokes[this.state.currentJoke] } next={this.handleNextJokeClick.bind(this)} previous={this.handlePreviousJokeClick.bind(this)} up={this.handleUpvoteClick.bind(this)}   down={this.handleDownvoteClick.bind(this)}/>
+            <Controls joke={this.state.jokes[this.state.currentJoke] } next={this.handleNextJokeClick.bind(this)} previous={this.handlePreviousJokeClick.bind(this)} up={this.handleUpvoteClick.bind(this)}   down={this.handleDownvoteClick.bind(this)} style={jokeBody}/>
           </Fragment>
         );
       }
@@ -131,7 +133,7 @@ class App extends Component {
     if (this.state.screen === 'add_joke'){
       return(
         <Fragment>
-          <TopMenu best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)}/>
+          <TopMenu style={jokeBody} best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)}/>
           <br></br>
           <hr></hr>
           <span>Loading add joke Page</span>
@@ -142,7 +144,7 @@ class App extends Component {
     if (this.state.screen === 'login_page'){
       return(
         <Fragment>
-          <TopMenu best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)}/>
+          <TopMenu style={jokeBody} best={this.handleBestClick.bind(this)} add={this.handleAddJokeClick.bind(this)} login={this.handleLoginClick.bind(this)}/>
           <br></br>
           <hr></hr>
           <span>Loading login Page</span>
@@ -153,6 +155,14 @@ class App extends Component {
 
   }
 }
+
+const jokeBody = {
+  paddingLeft: '50px',  
+  maxWidth:'100%',
+  textAllign: 'center',
+  fontSize: '20px',
+}
+
 
 
 
